@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كرتون فور يو - ملخصات الأفلام</title>
+<meta name="description" content="اقرأ ملخصات أفلام الكرتون والأنمي على منصة كرتون فور يو.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body { 
+    margin:0; 
+    font-family: 'Tahoma', sans-serif; 
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #202020); 
+    color:white; 
+    background-attachment: fixed;
+    direction: rtl;     
+    text-align: right;   
+}
+header { 
+    background:linear-gradient(90deg,#e50914,#b0060f); 
+    padding:40px 20px; 
+    text-align:center; 
+    box-shadow:0 4px 10px rgba(0,0,0,0.6);
+    position: relative;
+}
+header h1 { 
+    font-size:2.8em; 
+    margin:0; 
+    color:#fff; 
+    letter-spacing:2px;
+}
+header p { 
+    font-size:1.2em; 
+    color:#f1f1f1; 
+    margin-top:15px; 
+}
+nav {
+    background: rgba(30, 30, 30, 0.95);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+}
+nav ul li a i {
+    margin-left: 8px;
+}
+nav ul li a:hover, nav ul li a.active {
+    background: #e50914;
+    transform: scale(1.05);
+}
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.page-content h2 {
+    color: #ffd700;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e50914;
+    padding-bottom: 10px;
+}
+
+.content-box {
+    background: rgba(30, 30, 30, 0.7);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.content-box p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1em;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #b0060f;
+    transform: scale(1.05);
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.summary-item {
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.summary-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+}
+
+.summary-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #e50914;
+}
+
+.summary-content {
+    padding: 15px;
+}
+
+.summary-content h3 {
+    color: #ffd700;
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    min-height: 60px;
+}
+
+.summary-content p {
+    color: #bbb;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100px;
+}
+
+.summary-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.watch-btn {
+    display: block;
+    width: 100%;
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1em;
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.watch-btn:hover {
+    background: #b0060f;
+    transform: scale(1.02);
+}
+
+footer { 
+    text-align:center; 
+    padding:25px 0; 
+    background:#111; 
+    margin-top:40px; 
+    color:#aaa; 
+    font-size:14px;
+}
+footer i { color:#e50914; margin:0 8px; }
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+    
+    .page-content h2 {
+        font-size: 2em;
+    }
+    
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fa-solid fa-film"></i> كرتون فور يو <i class="fa-solid fa-film"></i></h1>
+    <p>منصة مخصصة لمشاهدة أفلام ومسلسلات الكرتون بجودة عالية، مع إمكانية البحث والعرض المباشر.</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
+        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> من نحن</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> اتصل بنا</a></li>
+        <li><a href="summary.html" class="active"><i class="fa-solid fa-list"></i> ملخصات الأفلام</a></li>
+    </ul>
+</nav>
+
+<div class="page-content">
+    <h2><i class="fa-solid fa-list"></i> ملخصات الأفلام</h2>
+    
+    <div class="content-box">
+        <p>هنا تجد ملخصات لأهم أفلام الكرتون والأنمي المتوفرة على منصتنا. يمكنك الاطلاع على القصة قبل البدء في المشاهدة، وتصفية الأفلام حسب التصنيف الذي تفضله.</p>
+    </div>
+    
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="كونان">أفلام كونان</button>
+        <button class="filter-btn" data-filter="أنمي">أنمي</button>
+        <button class="filter-btn" data-filter="أكشن">أكشن</button>
+        <button class="filter-btn" data-filter="كوميديا">كوميديا</button>
+        <button class="filter-btn" data-filter="مغامرات">مغامرات</button>
+    </div>
+    
+    <div class="summary-grid" id="moviesGrid">
+        <div class="summary-item" data-category="كونان">
+            <img src="https://archive.org/services/img/detective-conan-movie-27" alt="فيلم كونان 27" class="summary-img">
+            <div class="summary-content">
+                <h3>فيلم كونان 27: نجم المليون دولار</h3>
+                <p>المتحري الصغير سينشي كودو يواجه تحديات جديدة مع جريمة متعلقة بمليون دولار. تدور الأحداث حول سرقة جوهرة ثمينة تسمى "نجم المليون دولار" أثناء عرضها في متحف طوكيو. يجب على كونان أن يحل اللغز قبل فوات الأوان.</p>
+                <div class="summary-meta">
+                    <span>السنة: 2018</span>
+                    <span>التقييم: 4.5/5</span>
+                </div>
+                <a href="index.html?id=detective-conan-movie-27" class="watch-btn">شاهد الفيلم</a>
+            </div>
+        </div>
+        
+        <div class="summary-item" data-category="كونان">
+            <img src="https://archive.org/services/img/25-waifu-2x-1920x-1080" alt="فيلم كونان 25" class="summary-img">
+            <div class="summary-content">
+                <h3>فيلم كونان 25: عروس شيبويا</h3>
+                <p>فيلم مدبلج بالعربية عن قضية غامضة في حي شيبويا. يجد كونان نفسه في وسط مؤامرة خطيرة عندما تتعرض عروس للاختطاف قبل زفافها مباشرة. يجب عليه أن يحل اللغز وينقذ العروس قبل فوات الأوان.</p>
+                <div class="summary-meta">
+                    <span>السنة: 2020</span>
+                    <span>التقييم: 4.3/5</span>
+                </div>
+                <a href="index.html?id=25-waifu-2x-1920x-1080" class="watch-btn">شاهد الفيلم</a>
+            </div>
+        </div>
+        
+        <div class="summary-item" data-category="كونان">
+            <img src="https://archive.org/services/img/SPGO-260" alt="فيلم كونان 22" class="summary-img">
+            <div class="summary-content">
+                <h3>فيلم كونان 22: Zero the Enforcer</h3>
+                <p>تحقيق كونان في انفجار غامض خلال افتتاح منتجع كبير في طوكيو. يجد نفسه متورطاً في مؤامرة إرهابية ويجب أن يعمل مع المنظمة السوداء لحل اللغز. فيلم مليء بالإثارة والمفاجآت.</p>
+                <div class="summary-meta">
+                    <span>السنة: 2018</span>
+                    <span>التقييم: 4.6/5</span>
+                </div>
+                <a href="index.html?id=SPGO-260" class="watch-btn">شاهد الفيلم</a>
+            </div>
+        </div>
+        
+        <div class="summary-item" data-category="أنمي">
+            <img src="https://via.placeholder.com/300x200/1e1e1e/e50914?text=فيلم+أنمي+جديد" alt="فيلم أنمي جديد" class="summary-img">
+            <div class="summary-content">
+                <h3>الفارس الأسطوري</h3>
+                <p>في عالم خيالي، يجب على فارس شاب أن ينقذ مملكته من قوى الشر التي تهدد بالسيطرة على العالم. رحلة مليئة بالمغامرات والصداقة والتضحية. فيلم أنمي برسوم رائعة وقصة مؤثرة.</p>
+                <div class="summary-meta">
+                    <span>السنة: 2022</span>
+                    <span>التقييم: 4.7/5</span>
+                </div>
+                <a href="index.html" class="watch-btn">شاهد الفيلم</a>
+            </div>
+        </div>
+        
+        <div class="summary-item" data-category="كوميديا">
+            <img src="https://via.placeholder.com/300x200/1e1e1e/ffd700?text=فيلم+كوميدي" alt="فيلم كوميدي" class="summary-img">
+            <div class="summary-content">
+                <h3>مغامرات الفريق المضحك</h3>
+                <p>مجموعة من الأصدقاء يخوضون مغامرات مضحكة أثناء محاولتهم حل الألغاز وإنقاذ حيوانهم الأليف المفقود. فيلم عائلي مليء بالضحك والمغامرات والمواقف الطريفة المناسبة لجميع أفراد الأسرة.</p>
+                <div class="summary-meta">
+                    <span>السنة: 2021</span>
+                    <span>التقييم: 4.2/5</span>
+                </div>
+                <a href="index.html" class="watch-btn">شاهد الفيلم</a>
+            </div>
+        </div>
+        
+        <div class="summary-item" data-category="أكشن">
+            <img src="https://via.placeholder.com/300x200/1e1e1e/b0060f?text=فيلم+أكشن" alt="فيلم أكشن" class="summary-img">
+            <div class="summary-content">
+                <h3>أبطال المجرة</h3>
+                <p>في مستقبل بعيد، يجب على فريق من الأبطال الفضائيين حماية الكون من غزو كائنات فضائية شريرة. معركة ملحمية تحدّد مصير المجرة. فيلم أكشن برسوم متحركة مذهلة ومشاهد قتال مثيرة.</p>
+                <div class="summary-meta">
+                    <span>السنة: 2023</span>
+                    <span>التقييم: 4.8/5</span>
+                </div>
+                <a href="index.html" class="watch-btn">شاهد الفيلم</a>
+            </div>
+        </div>
+        
+        <div class="summary-item" data-category="مغامرات">
+            <img src="https://via.placeholder.com/300x200/1e1e1e/00a8ff?text=فيلم+مغامرات" alt="فيلم مغامرات" class="summary-img">
+            <div class="summary-content">
+                <h3>رحلة إلى العالم السفلي</h3>
+                <p>مجموعة من المستكشفين الشباب يخوضون رحلة خطيرة إلى عالم سفلي غامض بحثاً عن كنز أسطوري. فيلم مغامرات مشوق مليء بالمفاجآت والألغاز التي يجب حلها للوصول إلى الهدف.</p>
+                <div class="summary-meta">
+                    <span>السنة: 2020</span>
+                    <span>التقييم: 4.4/5</span>
+                </div>
+                <a href="index.html" class="watch-btn">شاهد الفيلم</a>
+            </div>
+        </div>
+        
+        <div class="summary-item" data-category="أنمي">
+            <img src="https://via.placeholder.com/300x200/1e1e1e/9c88ff?text=فيلم+أنمي+درامي" alt="فيلم أنمي درامي" class="summary-img">
+            <div class="summary-content">
+                <h3>ذكريات الماضي</h3>
+                <p>قصة درامية مؤثرة عن شاب يحاول التغلب على ماضيه المؤلم وبناء مستقبل أفضل. فيلم أنمي عميق يعالج قضايا نفسية واجتماعية مع رسوم فنية رائعة وموسيقى تلامس القلب.</p>
+                <div class="summary-meta">
+                    <span>السنة: 2019</span>
+                    <span>التقييم: 4.6/5</span>
+                </div>
+                <a href="index.html" class="watch-btn">شاهد الفيلم</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة © 2025 | كرتون فور يو <i class="fa-solid fa-heart"></i></p>
+</footer>
+
+<script>
+// فلترة الأفلام حسب التصنيف
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        // إزالة النشاط من جميع الأزرار
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // إضافة النشاط للزر الحالي
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        const movies = document.querySelectorAll('.summary-item');
+        
+        movies.forEach(movie => {
+            if (filter === 'all' || movie.getAttribute('data-category') === filter) {
+                movie.style.display = 'block';
+            } else {
+                movie.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
